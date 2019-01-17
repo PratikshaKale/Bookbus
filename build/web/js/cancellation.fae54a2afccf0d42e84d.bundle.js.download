@@ -1,0 +1,1 @@
+webpackJsonp([31],{0:function(n,c,i){i(255),$(document).ready(function(){$("#searchTicket").on(click,function(){$(this).addClass("loadingbg")})})},255:function(n,c){}});

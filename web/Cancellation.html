@@ -1,0 +1,754 @@
+
+<html>
+    <head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/link.css">
+<link rel="icon" href="IMAGES/11.png" type="image/png" sizes="16x16">
+<script type="text/javascript" id="__ta_ces">
+var gmg_path=location.pathname;
+var gmg_srch=location.search;
+var gmg_host=location.hostname;
+
+
+
+/*if(gmg_srch.indexOf('testwebnotif')==1){
+  $('body').append('<div id="gmg_wp_notif" style="width: 400px;border-radius: 5px;left: 50%;margin-left: -200px;z-index:9999;position: fixed;box-shadow:1px 1px 5px rgba(0,0,0,0.2); top:69px; background:white; padding: 10px;border: 0px solid #ccc; color: #343434; font: normal 16px/1.5 RedHotels, Arial, sans-serif, Arial, Helvetica, Tahoma;">'+'<div style="overflow: hidden;">'+'<div style="display: inline-block;width: 21%;vertical-align: middle;height: 75px;background: #ea4c53;border-radius: 10px;margin-right: 2%;">'+'<img src="http://s1.rdbuz.com/trips/images/redbus_logo.png" style="padding: 15px 2px;">'+'</div>'+'<div style="display: inline-block;width: 77%;vertical-align: middle;">'+'<label style="display: block;font-weight: 600;margin-bottom: 8px;font-size: 15px;">Get the best out of redBus.</label>'+'<span style="display: block;font-size: 12px;color: #666;line-height: 16px;">Enable browser notifications from redBus and receive exclusive offers, price updates and much more.</span>'+'</div>'+'</div>'+'<div style="text-align: right;">'+'<button style="border: 0;background: none;text-decoration: underline;vertical-align: middle;" onclick="javascript:hide_wp_request()" >No Thanks</button>'+'<button style="padding: .3em 1.2em;text-decoration: none;text-transform: capitalize;border: none;font-size: 15px;text-align: center;background-color: #EA4C53;color: #fff;cursor: pointer;vertical-align: middle;" onclick="javascript:show_wp_request()">Allow</button>'+'</div>'+'</div>'); 
+}*/
+
+
+//New HTML for Webnotif
+if(location.hostname == "www.redbus.in"){
+if(gmg_path == "/hotels/"){
+  var $ = _taq.$;
+  _taq.handlers.push(['ready',function(){
+  if(_taq.getLSItem("webpush_status") != "registered" && _taq.getLSItem("webpush_status") != "denied")
+        {
+          console.log("not registered");
+  $('body').append('<div id="gmg_wp_notif" style="width: 350px;left: 1%;z-index:9999;position: fixed;box-shadow:1px 1px 5px rgba(0,0,0,0.2); top:69px; background:#eee; padding: 10px;border: 0px solid #ccc; color: #343434; font: normal 16px/1.5 RedHotels, Arial, sans-serif, Arial, Helvetica, Tahoma;">'+'<div style="overflow: hidden;margin: 0 auto;">'+'<div style="display: inline-block;width: 68px;vertical-align: middle;height: 62px;background: #ea4c53;border-radius: 10px;margin-right: 2%;box-sizing: border-box;">'+'<img src="http://s1.rdbuz.com/trips/images/redbus_logo.png" style="padding: 13px 2px;width: 95%;">'+'</div>'+'<div style="display: inline-block;width: 73%;vertical-align: middle;">'+'<label style="display: block;font-weight: 600;margin-bottom: 8px;font-size: .95em;">Get the best out of redBus.</label>'+'<span style="display: block;font-size: .75em;color: #666;line-height: 16px;">Enable browser notifications from redBus and receive exclusive offers, price updates and much more.</span>'+'</div>'+'</div>'+'<div style="text-align: right;padding-top: .5em;">'+'<button onclick="javascript:hide_wp_request()" style="border: 0;background: none;text-decoration: underline;vertical-align: middle;font-size: .8em;margin-right: 1em;">No Thanks</button>'+'<button onclick="javascript:show_wp_request()" style="padding: .3em 1.2em;text-decoration: none;text-transform: capitalize;border: none;font-size: .8em;text-align: center;background-color: #EA4C53;color: #fff;cursor: pointer;vertical-align: middle;">Receive Notifications</button>'+'</div>'+'</div>');
+        }
+        }]);
+}
+}
+
+if(location.hostname == "m.redbus.in"){
+  console.log('Mobile');
+  if(gmg_path == "/hotels/"){
+    if(_taq.getLSItem("webpush_status") != "registered" && _taq.getLSItem("webpush_status") != "denied")
+        {
+          console.log('Not Registered');
+          console.log(_taq.getLSItem("webpush_status"));
+    _taq.$('body').append('<div id="gmg_wp_notif" style="width: 96%;p;padding: 2%;color: #343434;bottom: 0px;position:fixed;z-index: 100;box-sizing: content-box;font: normal 16px/1.5 RedHotels, Arial, sans-serif, Arial, Helvetica, Tahoma;background: #eee;box-shadow: 0 0px 10px #999;">'+'<div style="overflow: hidden;margin: 0 auto;">'+'<div style="display: inline-block;width: 68px;vertical-align: middle;height: 62px;background: #ea4c53;border-radius: 10px;margin-right: 2%;box-sizing: border-box;">'+'<img src="http://s1.rdbuz.com/trips/images/redbus_logo.png" style="padding: 13px 2px;width: 95%;">'+'</div>'+'<div style="display: inline-block;width: 73%;vertical-align: middle;">'+'<label style="display: block;font-weight: 600;margin-bottom: 8px;font-size: .95em;">Get the best out of redBus.</label>'+'<span style="display: block;font-size: .75em;color: #666;line-height: 16px;">Enable browser notifications from redBus and receive exclusive offers, price updates and much more.</span>'+'</div>'+'</div>'+'<div style="text-align: right;padding-top: .5em;">'+'<button onclick="javascript:hide_wp_request()" style="border: 0;background: none;text-decoration: underline;vertical-align: middle;font-size: .8em;margin-right: 1em;">No Thanks</button>'+'<button onclick="javascript:show_wp_request()" style="padding: .3em 1.2em;text-decoration: none;text-transform: capitalize;border: none;font-size: .8em;text-align: center;background-color: #EA4C53;color: #fff;cursor: pointer;vertical-align: middle;">Receive Notifications</button>'+'</div>'+'</div>');
+        }
+  }
+}
+
+
+
+// Chat requirements
+/* if (window.location.hostname == 'www.redbus.in') {
+  if (location.pathname.indexOf('/hotels/') === 0 || location.pathname=='/'){//
+    _taq.handlers.push(['ready', function() {
+      if (typeof _ss_track != 'undefined') {
+        _ss_track.handlers.push(['connect', function() {
+          _ss_track.api.live_chat_click();
+          _ss_track.api.chat_hide();
+          SecondScreen._del_sess_data("__ss_chat");
+          //_ss_track.api.ws.send(String.fromCharCode(32)+"171");
+        }]);
+      }
+    }]);
+  }
+} */
+
+if(window.location.hostname=='www.redbus.in'){
+  if (location.pathname.indexOf('/hotels/') === 0) {//|| location.pathname == '/'
+  _taq.handlers.push(['ready', function() {
+    if (typeof _ss_track != 'undefined') {
+      _ss_track.handlers.push(['connect', function() {
+        var $ = _taq.$;
+        var sint = setInterval(function() {
+            if ($('.gmg_chat').contents().find('#151').length > 0) {
+                if (gmg_path.indexOf('/hotels/') == -1) {
+                    $('.gmg_chat').contents().find('#151').val('Buses');
+                    $('.gmg_chat').contents().find('#151').trigger('change');
+                    //not required//$('.gmg_chat').contents().find('#151').prop('disabled','disabled');//css('display', 'none');
+                }
+                if (gmg_path.indexOf('/hotels/') != -1) {
+                    $('.gmg_chat').contents().find('#151').val('Hotels');
+                    $('.gmg_chat').contents().find('#151').trigger('change');
+                    //not required//$('.gmg_chat').contents().find('#151').prop('disabled','disabled');//.css('display', 'none');
+                }
+                clearTimeout(sint);
+            }
+        }, 250);
+      }]);
+    }
+  }]);
+  }
+}
+
+
+/*Webpush Request for DESKTOP*/
+if (window.location.hostname == 'www.redbus.in') {
+  if (gmg_path == '/' || gmg_path.indexOf('/travels/') === 0 || gmg_path.indexOf('/bus-tickets/') === 0 ||
+    gmg_path.indexOf('/buses/') === 0 || gmg_path.indexOf('/online-booking/') === 0) {
+    _taq.handlers.push(['ready', function() {
+      if (_taq.getLSItem('webpush_status') == undefined || _taq.getLSItem('webpush_status') == '' || _taq.getLSItem('webpush_status') != 'registered' || _taq.getLSItem('webpush_status') != 'blocked') {
+        _taq.do_webpush_registration();
+      }
+    }]);
+  }
+}
+function hide_wp_request() {
+  console.log('hide');
+    _taq.$('#gmg_wp_notif').css('display','none');
+  _taq.setLSItem("webpush_status","denied");
+  }
+  function show_wp_request() {
+    console.log('pushed');
+    _taq.$('#gmg_wp_notif').css('display','none');
+    _taq.handlers.push(['ready',function(){
+      console.log('registration');
+      _taq.do_webpush_registration();
+    }]);
+  }
+/*Webpush Request for MOBILE-WEB*/
+if(window.location.hostname=='m.redbus.in'){
+  if(location.pathname=='/hotels' || location.pathname=='/'){
+    _taq.handlers.push(['ready',function(){
+      _taq.do_webpush_registration();
+    }]);
+  }
+}
+
+if(location.pathname == '/Booking/ConfirmMsgrt.aspx' && location.host=='www.redbus.in'){
+  _taq.handlers.push(['ready',function(){
+    _taq.events.push(['GFTid',{'no':$('span[id*=refNum1]').html()}]);
+  }]);
+}
+/*
+if(location.pathname == '/Booking/failureHandler.aspx' && location.host=='www.redbus.in'){
+  _taq.handlers.push(['ready',function(){
+    if($('.trav-title').size()>3){
+      _taq.events.push(['GFT details',{
+        'journey':'two-way',
+        'refno':$('.reason:first > strong:last').text().replace(/[^0-9]/g, ""),
+        'amount':parseFloat($('div.reason>div.LB').text().match(/Rs\.([0-9\.]+)\/\-/)[1]),
+        'toSource':$('.source-dest:first >span:first').text(),
+        'toDestination':$('.source-dest:first >span:last').text(),
+        'toFare':parseFloat($('.fare-detr:first > span:last').text().match(/R[Ss]\.([0-9\.]+)\/\-/)[1]),
+        'toTravelsName':$('.travel-name:first').text(),
+        'toDOJ':$('dt[class^=details]:first > span:first').text(),
+        'toSeats':$('dt[class^=details]:first > span:last').text(),
+        'toBP':$('dt[class^=last]:first').text(),
+        'frmSource':$('.source-dest:last >span:first').text(),
+        'frmDestination':$('.source-dest:last >span:last').text(),
+        'frmFare':parseFloat($('.fare-det:last > span:last').text().match(/R[Ss]\.([0-9\.]+)\/\-/)[1]),
+        'frmTravelsName':$('.trav-name:last').text(),
+        'frmDOJ':$('dt[class^=details]:last > span:first').text(),
+        'frmSeats':$('dt[class^=details]:last > span:last').text(),
+        'frmBP':$('dt[class^=last]:last').text()
+      }]);
+    }
+    if($('.travel-title').size()==3){
+      _taq.event.push(['GFT details',{
+        'journey':'one-way',
+        'refno':$('.reason:first > strong:last').text().replace(/[^0-9]/g, ""),
+        'amount':parseFloat($('div.reason>div.LB').text().match(/Rs\.([0-9\.]+)\/\-/)[1]),
+        'toSource':$('.source-dest:first >span:first').text(),
+        'toDestination':$('.source-dest:first >span:last').text(),
+        'toFare':parseFloat($('.fare').text().replace(/[^0-9]/g,"")),
+        'toTravelsName':$('.trav-name:first').text(),
+        'toDOJ':$('dt[class^=details]:first > span:first').text(),
+        'toSeats':$('dt[class^=details]:first > span:last').text(),
+        'toBP':$('dt[class^=last]:first').text(),
+        'frmSource':'-',
+        'frmDestination':'-',
+        'frmFare':'-',
+        'frmTravelsName':'-',
+        'frmDOJ':'-',
+        'frmSeats':'-',
+        'frmBP':'-'
+      }]);
+    }
+  }]);
+}
+
+if(location.pathname=='/Booking/SelectBus.aspx'  && location.host=='www.redbus.in'){
+  _taq.handlers.push(['ready',function(){
+    $('.viewSeatsBtn').mousedown(function() {
+        if($(this).text()=='View Seats'){
+            _taq.events.push(['viewing_bus',{
+                'bus_name':$(this).parents('.busItem').find('h4.BusName').text(),
+                'bus_type':$(this).parents('.busItem').find('span.BusType').text(),
+                'bus_fare':parseFloat($(this).parents('.busItem').find('span.Fare').text()),
+                'bus_to':$('.From').first().text(),
+                'bus_from':$('.To').first().text(),
+                'bus_doj':$('.dateDisplay').first().text()
+            }]);
+        }
+    });
+  }]);
+}
+*/
+if(location.host=='www.redbus.in'){
+  if (typeof $ != "undefined") {
+    $(document).on('click','.needHelp',function(){
+      _taq.handlers.push(['ready',function(){
+        _taq.events.push(['need_help',{'-':'-'}]);
+      }]);
+    });
+    $(document).on('click','#gmg_chat',function(){
+      _taq.handlers.push(['ready',function(){
+        _taq.events.push(['need_help',{'-':'-'}]);
+      }]);
+    });
+  }
+}
+/*
+if(location.pathname=='/Booking/CustInfo.aspx'  && location.host=='www.redbus.in'){
+  _taq.handlers.push(['ready',function(){
+    $(document).on('click','#makepayment',function(){
+        if(($('#rrdets').css('display'))=='block'){
+            _taq.events.push(['booking_info',{
+                'cust_name':$('#NAME1').val(),
+                'booking_type':'two way',
+                'booking_date':$('.travDate').first().text(),
+                'cust_origin':$('.travCity').first().text().split(' to ')[0],
+                'cust_destination':$('.travelCity').first().text().split(' to ')[1]
+            }]);
+        }
+        else{
+            _taq.events.push(['booking_info',{
+                'cust_name':$('#NAMET1').val(),
+                'booking_type':'one way',
+                'booking_date':$('.travDate').first().text(),
+                'cust_origin':$('.travCity').first().text().split(' to ')[0],
+                'cust_destination':$('.travCity').first().text().split(' to ')[1]
+            }]);
+        }
+    });
+  }]);
+}
+if(location.pathname=='/Booking/CustInfo.aspx' && location.host=='www.redbus.in'){
+  _taq.handlers.push(['ready',function(){
+    $(document).on('click','#applyOffer',function(){
+      var ctime = setTimeout(function(){
+        _taq.events.push(['coupon',{'message':$('#specialOfferMessage').text()}]);
+        },3000);
+    });
+  }]);
+}*/
+
+//Home page banner for mobile
+if (location.hostname + location.pathname + location.search == "m.redbus.in/" || location.hostname + location.pathname == "m.redbus.in/payment") {
+  var inte = setInterval(function() {
+    for (i = 0; i < dataLayer.length; i++) {
+      var login = dataLayer[i].isSignedIn;
+      if (login == "No") {
+        _taq.events.push(['hp_notif', {
+          'login_status': 'No',
+          'location' : location.hostname+location.pathname+location.search
+        }]);
+        clearInterval(inte);
+      }
+      if (login == "Yes"){
+        _taq.events.push(['hp_notif', {
+          'login_status': 'Yes',
+          'location' : location.hostname+location.pathname+location.search
+        }]);
+        clearInterval(inte);
+        }
+    }
+  }, 1000);
+}
+
+
+_taq.handlers.push(['event','bus_search',function(ev){
+  ev[1]['gtm']=_taq.$('scripts[src*="/gtm.js?id="]').attr('src').replace('//www.googletagmanager.com/gtm.js?id=','');
+  ev[1]['page']=location.hostname+location.pathname+location.search;
+  return false;
+}]);
+_taq.handlers.push(['event','hotels_recommended',function(ev){
+  ev[1]['page']=location.pathname+location.search;
+  return ev;
+}]);
+/*
+_taq.handlers.push(['event','bus_searched',function(ev){
+  ev[1]['search_results']=parseInt(_taq.$('.bus-items> li').length);
+  parseInt(_taq.$('.bus-list> li ').length);
+  return ev;
+}]); */
+
+// Email Capture for Hotels-web
+if (location.hostname == 'www.redbus.in') {
+  if (location.pathname.indexOf('/hotels/booking') != -1)
+  {
+    _taq.handlers.push(['ready', function() {
+      var $ = _taq.$;
+       if ($('input[id="email_id"]').val() != '')
+       {
+         var email =input[id="email_id"].val().trim().toLowerCase();
+         if (email !== '' && email !== undefined && email.indexOf('@') != -1 && email.indexOf('.') != -1) {
+         _taq.identify.push([email, function() {
+           _taq.property.push(['email', email]);
+         }]);
+        }
+       }
+      var name='-';
+      $(document).on('blur', 'input[id="first_name"]', function() {
+         name = $('input[id="first_name"]').val().toLowerCase();
+        });
+
+      $(document).on('blur', 'input[id="email_id"]', function() {
+        //console.log("hai");
+        var email = $('input[id="email_id"]').val().trim().toLowerCase();
+        var re = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+        if (re.test(email))
+        {
+          _taq.identify.push([email, function() {
+            _taq.property.push(['email', email]);
+            if (name != "" && name.length>3 && name.indexOf('@') == -1) {
+              if(/^[a-zA-Z ]*$/.test(name) == true){
+                _taq.property.push(['name', name]);
+              }
+            }
+          }]);
+        }
+      });
+      $(document).on('blur', 'input[id="mob_no"]', function() {
+        var phone = $('input[id="mob_no"]').val().trim();
+        if (phone.length == 10) {
+          _taq.property.push(['mobile', phone]);
+        }
+      });
+    }]);
+  }
+
+}
+// Email and mobile capture on signup and signin Pages
+_taq.handlers.push(['ready', function() {
+  var $ = _taq.$;
+  var setintvl = setInterval(function() {
+    if ($('.modalIframe:visible').length > 0) {
+      $('.modalIframe').contents().find('#signIn').find('#emailID').on('blur', function() {
+        var email = $('.modalIframe').contents().find('#signIn').find('#emailID').val().trim().toLowerCase();
+        var re = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+        if (re.test(email))
+        {
+          _taq.identify.push([email, function() {
+            _taq.property.push(['email', email]);
+          }]);
+        }
+      });
+      $('.modalIframe').contents().find('#signIn').find('#mobileNo').on('blur', function() {
+        var mobile=$('.modalIframe').contents().find('#signIn').find('#mobileNo').val().trim();
+        if (mobile.length == 10) {
+          _taq.property.push(['mobile', mobile]);
+        }
+      });
+      
+      $('.modalIframe').contents().find('#signIn').find('#email-mobile').on('blur', function() {
+        var email = $('.modalIframe').contents().find('#signIn').find('#email-mobile').val().trim().toLowerCase();
+        if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1)
+        {
+          _taq.identify.push([email, function() {
+            _taq.property.push(['email', email]);
+          }]);
+        }
+      });
+      
+      clearInterval(setintvl);
+    }
+  }, 3000);
+}]);
+// Email and mobile capture on signup and signin pages for mobile
+if(location.pathname.indexOf('/user/signin') != -1){
+_taq.$(document).on('blur','#signup-email', function() {
+        var email = _taq.$('#signup-email').val().trim().toLowerCase();
+        var re = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+        if (re.test(email))
+        {
+          _taq.identify.push([email, function() {
+            _taq.property.push(['email', email]);
+          }]);
+        }
+      });
+  
+ _taq.$(document).on('blur','#signin-email',function(){
+    var email = _taq.$('#signin-email').val().trim().toLowerCase();
+    if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1)
+    {
+      _taq.identify.push([email, function(){
+        _taq.property.push(['email', email]);
+      }]);
+    }
+  });
+  _taq.$(document).on('blur','#otp-mobile', function() {
+        var mobile = _taq.$('#otp-mobile').val().trim();
+        if(mobile.length==10) {
+        _taq.property.push(['mobile',mobile]);
+        }
+      });
+}
+
+//Email Capture in custinfo page if visitor logged in using signin frame
+if(location.hostname+location.pathname == "m.redbus.in/booking")
+{
+  _taq.handlers.push(['ready',function(){
+  if(_taq.$('input[name="EmailID"]') != '')
+  {
+    var email = _taq.$('input[name="EmailID"]').val().trim().toLowerCase();
+    if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1){
+      _taq.identify.push([email, function(){
+        _taq.property.push(['email', email]);
+      }]);
+    }
+  }
+    }]);
+}
+//Email Capture in custinfo page for web if visitor logged in using signin frame
+if (location.hostname+location.pathname == "www.redbus.in/search")
+{
+   //console.log("working1");
+  _taq.handlers.push(['ready', function() {
+    var $=_taq.$;
+    var setintvl = setInterval(function() {
+    if ($('.custinfo.slidein').length > 0) {
+     // console.log("working2");
+    if ($('input[name="EmailID"]').val() != '')
+    {
+      var email =$('input[name="EmailID"]').val().trim().toLowerCase();
+      if (email !== '' && email !== undefined && email.indexOf('@') != -1 && email.indexOf('.') != -1) {
+        _taq.identify.push([email, function() {
+          _taq.property.push(['email', email]);
+        }]);
+      }
+    }
+      clearInterval(setintvl);
+    }
+  }, 3000);
+  }]);
+}
+
+
+//webpush permissions for every 2minutes(120000)
+if(location.search.indexOf('gmgtest77') != -1)
+{
+  var d= new Date;
+  var time= d.getTime();
+  localStorage.setItem('time',time);
+  if(_taq.getLSItem('webpush_status') == undefined)
+  {
+    webnotif();
+    //_taq.do_webpush_registration();
+    var time_limit = time + 120000;
+    localStorage.setItem('time_limit',time_limit);
+    console.log('new customers');
+  }
+  if(_taq.getLSItem('webpush_status') == "denied")
+  {
+    if(localStorage.getItem('time_limit') == undefined)
+    {
+      webnotif();
+      //_taq.do_webpush_registration();
+      var time_limit = time + 120000;
+      localStorage.setItem('time_limit',time_limit);
+      console.log('Repeated customers');
+    }
+    else if(localStorage.getItem('time') > localStorage.getItem('time_limit'))
+    {
+      webnotif();
+      //_taq.do_webpush_registration();
+      var time_limit = time + 120000;
+      localStorage.setItem('time_limit',time_limit);
+      console.log('new customers after time');
+    }
+  }
+}
+
+function webnotif()
+{
+  $('body').append('<div id="gmg_wp_notif" style="width: 350px;left: 1%;z-index:9999;position: fixed;box-shadow:1px 1px 5px rgba(0,0,0,0.2); top:69px; background:#eee; padding: 10px;border: 0px solid #ccc; color: #343434; font: normal 16px/1.5 RedHotels, Arial, sans-serif, Arial, Helvetica, Tahoma;">'+'<div style="overflow: hidden;margin: 0 auto;">'+'<div style="display: inline-block;width: 68px;vertical-align: middle;height: 62px;background: #ea4c53;border-radius: 10px;margin-right: 2%;box-sizing: border-box;">'+'<img src="http://s1.rdbuz.com/trips/images/redbus_logo.png" style="padding: 13px 2px;width: 95%;">'+'</div>'+'<div style="display: inline-block;width: 73%;vertical-align: middle;">'+'<label style="display: block;font-weight: 600;margin-bottom: 8px;font-size: .95em;">Get the best out of redBus.</label>'+'<span style="display: block;font-size: .75em;color: #666;line-height: 16px;">Enable browser notifications from redBus and receive exclusive offers, price updates and much more.</span>'+'</div>'+'</div>'+'<div style="text-align: right;padding-top: .5em;">'+'<button onclick="javascript:hide_wp_request()" style="border: 0;background: none;text-decoration: underline;vertical-align: middle;font-size: .8em;margin-right: 1em;">No Thanks</button>'+'<button onclick="javascript:show_wp_request()" style="padding: .3em 1.2em;text-decoration: none;text-transform: capitalize;border: none;font-size: .8em;text-align: center;background-color: #EA4C53;color: #fff;cursor: pointer;vertical-align: middle;">Receive Notifications</button>'+'</div>'+'</div>');
+}
+// Mobile user login profile page
+if (location.pathname == '/user/profile') {
+  _taq.handlers.push(['ready', function() {
+    var $ = _taq.$;
+    if ($('.email').text() != "") {
+      var gmg_email = $('.email').text().trim().toLowerCase();
+      var gmg_mobile = $('.phone').text().trim();
+      if (gmg_email != undefined && gmg_email.indexOf('@') != -1 && gmg_email.indexOf('.') != -1) {
+        _taq.identify.push([gmg_email, function() {
+          _taq.property.push(['email', gmg_email]);
+          _taq.property.push(['mobile', gmg_mobile]);
+        }]);
+      }
+    }
+  }]);
+}
+// WEB user login profile page
+if (location.pathname == '/myprofile') {
+  _taq.handlers.push(['ready', function() {
+    var $ = _taq.$;
+    if ($('#conemailvalue').text() != "") {
+      var gmg_email = $('#conemailvalue').text().trim().toLowerCase();
+      //console.log(gmg_email);
+      var code = $('#mobvalue').text().trim();
+      var num= $('#codevalue').text().trim();
+      var gmg_mobile=num+code;
+      if (gmg_email != undefined && gmg_email.indexOf('@') != -1 && gmg_email.indexOf('.') != -1) {
+        _taq.identify.push([gmg_email, function() {
+          _taq.property.push(['email', gmg_email]);
+          _taq.property.push(['mobile', gmg_mobile]);
+        }]);
+      }
+    }
+  }]);
+}
+// Mobile Thank you Page
+if(location.hostname == 'm.redbus.in'){
+  if(location.pathname =='/showTicket')
+  {
+    var email = _taq.$('#rb-email-notif > span:eq(3)').text().trim().toLowerCase();
+    var phone= _taq.$('#rb-email-notif > span:eq(1)').text();
+    _taq.identify.push([email, function() {
+      _taq.property.push(['email', email]);
+      _taq.property.push(['mobile', phone]);
+  }]);
+  }
+}
+
+/*_taq.handlers.push(['event','started session', function(ev){
+  if(ev[1]['IP'] == "183.82.114.14"){
+    ev[1]['location'] = "Singapore - Central Singapore Community Development Council, Singapore";
+    console.log(ev);
+    return ev;
+  }
+  else{
+  return ev;
+  }
+}]);*/
+
+//Hiding Notification when custinfo slide popup.
+if(location.pathname.indexOf('search') > 0){
+  var setint = setInterval(function(){
+    var x = _taq.$('.custinfo.slidein').length;
+    if(x == 1){
+      _taq.$('#__ta_notif_frame_0').hide();
+      clearInterval(setint);
+    }
+  },1000);
+}</script>
+<script type="text/javascript" src="./Cancellation_files/cookieCallback.php" async="">
+   </script>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="Keywords" content="online bus ticket booking, bus booking, volvo ac bus booking, bus ticket booking, bus tickets">
+    <meta name="description" content="redBus.in World’s Largest Online Bus Tickets Platform offers big inventory of operators, routes &amp; RTCs with TRACKMYBUS,RESTSTOPS  features. Use coupon code, get discounts and book your bus ticket.">
+    <meta id="page_name" content="Cancellation">
+
+    <meta property="og:description" content="Compare and Book online bus tickets in India. Find best prices and discounts on all Volvo, AC and sleeper buses in India.">
+            <link rel="stylesheet" href="./Cancellation_files/css">
+            <style>
+                body {
+                    font: normal 14px/1.4 'Lato';
+                }
+            </style>
+
+    
+    
+    
+            <link href="css/cancellation.css" rel="stylesheet">
+
+            <script type="text/javascript" async="" src="js/ec.js.download">
+           </script>
+           <script type="text/javascript" async="" id="__ta" src="js/tac.min.js.download">
+           </script>
+           <script type="text/javascript" async="" src="js/conversion_async.js.download">
+           </script>
+           <script type="text/javascript" async="" src="js/conversion_async.js.download">
+           </script>
+           <script type="text/javascript" async="" src="js/conversion_async.js.download">
+           </script>
+           <script type="text/javascript" async="" src="js/analytics.js.download">
+           </script>
+           <script async="" src="js/fbevents.js.download">
+           </script>
+           <script type="text/javascript" async="" src="./Cancellation_files/pixel.php">
+           </script>
+           <script async="" src="js/gtm.js.download">
+           </script>
+           <script>
+             var page = 'Cancellation';
+            </script>
+<script type="text/javascript" src="js/jquery-noamd.min.js.download"></script></head>
+<body>
+   <ul class="nav">
+    <li><a href="Bus Hire.html">Bus Hire</a></li>
+    <li><a href="BusBook.html">Bus Book</a></li>
+    <li><a href="PrintTicket.html">Print Ticket</a></li>
+    <li><a href="Cancellation.html">Cancel Ticket</a></li>
+    <li><a href="Logout1">Logout</a></li>
+</ul>
+    <section id="rh_main">
+        <div id="sticky_phantom" class="hide">
+        </div>
+ <div id="mBWrapper">
+            
+
+<script src="js/jquery-1.10.2.min.js.download"></script>
+<script src="js/jquery.validate.min.js.download" type="text/javascript"></script>
+<script src="js/jquery.validate.unobtrusive.min.js.download" type="text/javascript"></script>
+<div class="container">
+    <div class="headerwidget">
+        <span>
+            <p id="cancellationheader">TICKET CANCELLATION AND REFUND</p><br>
+            <p id="cancellationSubTitle">Follow our simple and hassle free 3 step process to cancel your ticket.</p>
+        </span>
+<form action="" method="get" novalidate="novalidate">           
+    <div class="fl search-box" style="border-color: rgb(210, 210, 210);">
+                <span class="fl icon-ticket icon">
+                </span>
+
+                <div>
+                    <input class="db" data-val="true" data-val-required="Please enter a valid ticket number." id="searchTicket" name="ticketNo" placeholder="TICKET NUMBER" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="ticketNo" data-valmsg-replace="true"></span>
+                    <div class="error-message-fixed "> </div>
+                </div>
+            </div>
+            <div class="fl search-box" style="border-color: rgb(210, 210, 210);">
+                <span class="fl icon-ticket icon">
+                </span>
+
+                <div>
+                    <input class="db" data-val="true" data-val-email="The emailId field is not a valid e-mail address." data-val-required="Please enter a valid emailId." id="searchTicket" name="emailId" placeholder="EMAIL" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="emailId" data-valmsg-replace="true"></span>
+                    <div class="error-message-fixed "> </div>
+                </div>
+            </div>
+            <input type="submit" value="SEARCH" class="search_btn" id="searchTicket">
+</form>    </div>
+    <div class="cennterWidget">
+        <span id="flowlbl">How Does It Work?</span><br>
+        
+        <div style=" margin-top: 2em; text-align: center;">
+            <div style="display: inline-block; width: 33%; ">
+                <span class="icon-select_passengers" style="font-size: 90px; display: block; "><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>
+               <br>
+                <span style="font-size: 22px;">1. SELECT PASSENGERS</span>
+                <span style="display: block; width: 39%; margin-top: 4%; color: #8A8F92; MARGIN-LEFT: 29%; "></span>
+            </div>
+            <div style="display: inline-block; width: 33%; ">
+                <span class="icon-confirm_refund_amount" style=" font-size: 90px; margin-left: 7%;"></span>
+                <span class="icon-confirm_return_amount2" style="padding-left: 14%; font-size: 90px;"></span>
+                <br><br>
+                <span style="font-size: 22px;">2. CONFIRM REFUND AMOUNT</span>
+                <span style="display: block; width: 53%; margin-top: 4%; color: #8A8F92; margin-left: 22%; "></span>
+            </div>
+            <div style="display: inline-block; width: 33%; ">
+                <span class="icon-track_refund" style="padding-left: 1%; font-size: 90px;"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span><br><br>
+                <span style="font-size: 22px;">3. TRACK REFUND</span>
+                <span style="display: block; width: 53%; margin-top: 4%; color: #8A8F92; margin-left: 24%; "></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/cancellation.fae54a2afccf0d42e84d.bundle.js.download" type="text/javascript"></script>
+
+        </div>
+        
+    </section>
+    <div class="msg-header">
+        <div class="msg-success">
+            <div>
+                <em>✔</em>
+                <span id="nf_success"></span>
+            </div>
+            <a href="javascript:void(0);" class="nf-close">✖</a>
+        </div>
+        <div class="msg-error">
+            <div>
+                <em>✖</em>
+                <span id="nf_error"></span>
+            </div>
+            <a href="javascript:void(0);" class="nf-close">✖</a>
+        </div>
+        <div class="msg-info">
+            <div>
+                <em>¡</em>
+                <span id="nf_info"></span>
+            </div>
+            <a href="javascript:void(0);" class="nf-close">✖</a>
+        </div>
+        <div class="msg-notice">
+            <div>
+                <em>⚠</em>
+                <span id="nf_notice"></span>
+            </div>
+            <a href="javascript:void(0);" class="nf-close">✖</a>
+        </div>
+    </div>
+    <!-- Google Tag Manager -->
+    <noscript>
+        &lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-TCFTX7"
+                height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TCFTX7');</script>
+    <!-- End Google Tag Manager -->
+    <script>
+        var isRewardsEnabled = false;
+        var calendarObj = null;
+        var countryspecificdate = '2017/02/22';
+        var jsloggerURL='';
+        if(jsloggerURL && jsloggerURL!=="")
+        {
+            //  console.log(navigator.userAgent);
+            window.onerror = function (msg, url, lineNo, columnNo, error) {
+                var string = msg.toLowerCase();
+                var substring = "script error";
+                if (string.indexOf(substring) > -1){
+                    console.log('Script Error: See Browser Console for Detail');
+                } else {
+                    var message = {
+                        'Agent':'WEB_DIRECT',
+                        'Message':msg,
+                        'URL': url,
+                        'Line':  lineNo,
+                        'Column': columnNo,
+                        'Error object': JSON.stringify(error),
+                        'User Agent':navigator.userAgent,
+                        'URL':location.href
+                    };
+
+                }
+                var http = new XMLHttpRequest();
+                var url = jsloggerURL;
+                var params = JSON.stringify(message);
+                http.open("POST", url, true);
+                http.setRequestHeader("Content-type", "application/json");
+                http.send(params);
+                return false;
+            };
+        }
+    </script>
+    <script src="./Cancellation_files/vendor.eef9641f96a07f34c00b.bundle.js.download" type="text/javascript"></script>
+    <script src="./Cancellation_files/layout.26ff1c7c589c4d028974.bundle.js.download" type="text/javascript"></script>
+    
+
+
+<script type="text/javascript" id="">(function(){try{var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://in-tags.vizury.com":"http://in-tags.vizury.com")+"/analyze/pixel.php?account_id\x3dVIZVRM123";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);a.onload=function(){try{pixel.parse()}catch(c){}};a.onreadystatechange=function(){if("complete"==a.readyState||"loaded"==a.readyState)try{pixel.parse()}catch(c){}}}catch(c){}})();</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1507729712871579");fbq("track","PageView");</script>
+<noscript>&lt;img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1507729712871579&amp;amp;ev=PageView&amp;amp;noscript=1"&gt;</noscript>
+
+<div style="display: none; visibility: hidden;">
+    <script type="text/javascript">var _taq={id:"7be7d6a8-f0c2-444a-87e9-5010f121ee4e",events:[],identify:[],property:[],handlers:[]};(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.id="__ta";a.src="//cdn-jp.gsecondscreen.com/static/tac.min.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></div><iframe src="./Cancellation_files/saved_resource.html" style="position: absolute; top: -999px; left: -999px;"></iframe>
+</body></html>

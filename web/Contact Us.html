@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Modern Contact Form</title>
+<link rel="icon" href="IMAGES/11.png" type="image/png" sizes="16x16">
+<script type="application/x-javascript"> 
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<link href="css/ContactUs.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="css/link.css">
+<body>
+    <ul class="nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Contact Us.html">Write TO Us</a></li>
+    <li><a href="CustomerCare.html">Customer Support</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">My Account</a>
+    <div class="dropdown-content">
+        <a href="Login.html">Login</a>
+        <a href="Signup.html">Sign Up</a>
+    </div>
+  </li>
+    </ul>
+<div class="main-w3l">
+    <div align="center"><h1> Contact Form</h1></div>
+	<div class="w3l-submain">
+		
+			<form action="ContactServlet" method="post">
+			<div class="contact-agile">
+			    <h2>Contact Us</h2>
+				<label>NAME</label>
+				<input type="text" Name="name" placeholder="Thomson" required="">
+				<label>E-MAIL</label>
+				<input type="email" Name="email" placeholder="info@example.com" required="">
+				<label>MESSAGE</label>
+				<textarea name="message" placeholder="Enter Your Message here....." required=""></textarea>
+				</div>
+				<div class="send-button w3layouts">
+					<input type="submit" value="Send">
+				</div>
+			</form>
+		
+	
+	</div>
+	
+</div>
+<!--//main-->
+
+
+
+</body>
+</html>
