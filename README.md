@@ -1,3 +1,3 @@
 # Busbooking
 java based project
-MyBookbusProject/web/index.html
+link https://pratikshakale.github.io/MyBookbusProject/web/index.html
